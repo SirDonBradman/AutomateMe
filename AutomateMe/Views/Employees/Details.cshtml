@@ -1,0 +1,62 @@
+﻿@model AutomateMe.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Employee Details</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+    </dl>
+
+    <table>
+        <tr>
+            <th colspan="3">@Html.DisplayNameFor(e => e.EmployeeId)</th>
+            <th colspan="3">@Html.DisplayFor(e => e.EmployeeId)</th>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.Name)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.Name)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.Gender)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.Gender)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.MaritialStatus)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.MaritialStatus)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.Address)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.Address)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.DateOfBirth)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.DateOfBirth)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.IsCurrent)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.IsCurrent)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.Email)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.Email)</td>
+        </tr>
+        <tr>
+            <td colspan="3">@Html.DisplayNameFor(e => e.Phone)</td>
+            <td colspan="3">@Html.DisplayFor(e => e.Phone)</td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.EmployeeId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<style>
+    td{
+        font-size:1.3em;
+    }
+    
+</style>

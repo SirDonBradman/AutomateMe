@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AutomateMe.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employees</h2>
+
+<p>
+    <button type="submit" id="DeleteButton" class="btn btn-danger">Delete Selected Employees</button>
+    @Html.ActionLink("Create New", "Create", null, new { @class= "btn btn-success" })
+</p>
+
+<table class="table table-hover">
+    <tr>
+        <th>Select</th>
+        <th>Employee Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Maritial Status</th>
+        <th>Address</th>
+        <th>Date of birth</th>
+        <th>Is Current</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <input type="checkbox" class="MultipleDelete" name="@item.EmployeeId" value="@item.EmployeeId">
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.MaritialStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.IsCurrent)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(e => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+            </td>
+        </tr>
+    }
+
+</table>
+@Scripts.Render("~/Scripts/DeleteButtonEvent.js")

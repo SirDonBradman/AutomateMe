@@ -1,0 +1,66 @@
+﻿@model AutomateMe.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<hr/>
+<h3>Are you sure you want to delete this Employee?</h3>
+<div>
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <table>
+            <tr>
+                <th colspan="3">@Html.DisplayNameFor(e => e.EmployeeId)</th>
+                <th colspan="3">@Html.DisplayFor(e => e.EmployeeId)</th>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.Name)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.Name)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.Gender)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.Gender)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.MaritialStatus)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.MaritialStatus)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.Address)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.Address)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.DateOfBirth)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.DateOfBirth)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.IsCurrent)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.IsCurrent)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.Email)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.Email)</td>
+            </tr>
+            <tr>
+                <td colspan="3">@Html.DisplayNameFor(e => e.Phone)</td>
+                <td colspan="3">@Html.DisplayFor(e => e.Phone)</td>
+            </tr>
+        </table>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-success" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
+<style>
+    td {
+        font-size: 1.3em;
+    }
+</style>

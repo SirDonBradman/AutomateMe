@@ -1,0 +1,178 @@
+﻿@model AutomateMe.Models.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Employee</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.EmployeeId)
+                </div>
+                <div class="col-md-3">
+                    @Html.DisplayFor(model => model.EmployeeId)
+                    @Html.HiddenFor(model => model.EmployeeId)
+                    @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("Gender", new List<SelectListItem>
+               {
+                   new SelectListItem
+                   {
+                       Text = "Select Gender",
+                       Value = "Select Gender",
+                       Selected = true
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Male",
+                       Value = "Male"
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Female",
+                       Value = "Female"
+                   }
+               }, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.MaritialStatus)
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("MaritialStatus", new List<SelectListItem>
+               {
+                   new SelectListItem
+                   {
+                       Text = "Select Maritial Status",
+                       Value = "",
+                       Selected = true
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Single",
+                       Value = "Single"
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Married",
+                       Value = "Married"
+                   }
+               }, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaritialStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Address)
+                </div>
+                <div class="col-md-3">
+                    @Html.TextAreaFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                    
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.IsCurrent)
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.IsCurrent, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.IsCurrent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Email)
+                </div>
+                <div class="col-md-3">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Html.DisplayNameFor(model => model.Phone)
+                </div>
+                <div class="col-md-3">
+                    <input name="Phone" class="form-control input-validation-error" id="Phone" type="number" value=@Model.Phone data-val-required="The Phone field is required." data-val-number="The field Phone must be a number." data-val="true">
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+</style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
